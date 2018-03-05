@@ -15,6 +15,7 @@
         <module>muy-microservice-goods-repository</module>
         <module>muy-microservice-goods-service</module>
         <module>muy-microservice-goods-facade</module>
+        <module>muy-microservice-goods-spring-boot</module>
     </modules>
 
     <properties>

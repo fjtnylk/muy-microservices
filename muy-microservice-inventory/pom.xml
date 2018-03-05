@@ -16,6 +16,7 @@
         <module>muy-microservice-inventory-facade</module>
         <module>muy-microservice-inventory-repository</module>
         <module>muy-microservice-inventory-service</module>
+        <module>muy-microservice-inventory-spring-boot</module>
     </modules>
 
     <properties>

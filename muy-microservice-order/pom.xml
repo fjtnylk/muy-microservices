@@ -16,6 +16,7 @@
         <module>muy-microservice-order-facade</module>
         <module>muy-microservice-order-repository</module>
         <module>muy-microservice-order-service</module>
+        <module>muy-microservice-order-spring-boot</module>
     </modules>
 
     <properties>
