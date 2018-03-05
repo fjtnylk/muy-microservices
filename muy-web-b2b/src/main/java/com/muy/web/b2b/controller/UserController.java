@@ -6,6 +6,7 @@ import com.muy.microservice.user.query.LoadUserQuery;
 import com.muy.microservice.user.query.UpdateUserQuery;
 import com.muy.misc.ModelUtils;
 import com.muy.plugins.spring.boot.mvc.annotation.RequestURL;
+import com.muy.plugins.spring.boot.validation.annotation.ParameterValid;
 import com.muy.web.b2b.query.B2BCreateUserQuery;
 import com.muy.web.b2b.query.B2BDeleteUserQuery;
 import com.muy.web.b2b.query.B2BLoadUserQuery;
@@ -53,6 +54,7 @@ public class UserController {
   }
 
   @GetMapping(value = "/user/v1/load")
+  @ParameterValid(target = B2BLoadUserQuery.class)
   @ResponseBody
   public ApiResult loadUser(@RequestURL B2BLoadUserQuery query) {
     LoadUserQuery params = ModelUtils.parse(query, LoadUserQuery.class);

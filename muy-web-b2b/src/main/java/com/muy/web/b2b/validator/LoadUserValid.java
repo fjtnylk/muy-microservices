@@ -1,9 +1,10 @@
-package com.muy.plugins.spring.boot.validation.annotation;
+package com.muy.web.b2b.validator;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import javax.validation.ConstraintValidator;
+import javax.validation.Constraint;
+import javax.validation.Payload;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -13,16 +14,16 @@ import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Created by yanglikai on 2018/3/2.
+ * Created by yanglikai on 2018/3/5.
  */
 @Target({FIELD, METHOD, PARAMETER, ANNOTATION_TYPE, TYPE_USE})
 @Retention(RUNTIME)
+@Constraint(validatedBy = LoadUserValidator.class)
 @Documented
-public @interface ReturnValueValid {
+public @interface LoadUserValid {
+  String message() default "{com.muy.validator.load.user.message}";
 
-  Class<?>[] parameterTypes() default {};
+  Class<?>[] groups() default {};
 
-  boolean required() default true;
-
-  Class<? extends ConstraintValidator<?, ?>>[] validatedBy() default {};
+  Class<? extends Payload>[] payload() default {};
 }

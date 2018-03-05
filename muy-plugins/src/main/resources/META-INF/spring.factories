@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.muy.plugins.spring.boot.PluginsRequestURLAutoConfiguration
+com.muy.plugins.spring.boot.PluginsRequestURLAutoConfiguration,\
+com.muy.plugins.spring.boot.PluginsValidationAutoConfiguration

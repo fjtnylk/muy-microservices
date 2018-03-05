@@ -17,7 +17,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({FIELD, METHOD, PARAMETER, ANNOTATION_TYPE, TYPE_USE})
 @Retention(RUNTIME)
 @Documented
-public @interface ParamterValid {
+public @interface ParameterValid {
+
+  Class<?> target() default Object.class;
 
   boolean required() default true;
 }
