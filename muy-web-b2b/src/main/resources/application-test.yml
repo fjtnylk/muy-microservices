@@ -1,0 +1,10 @@
+#dubbo
+spring.dubbo:
+  appname: b2b-consumer
+  registry: zookeeper://127.0.0.1:2181
+  protocol: dubbo
+
+#spring boot
+spring:
+  aop:
+    proxy-target-class: true

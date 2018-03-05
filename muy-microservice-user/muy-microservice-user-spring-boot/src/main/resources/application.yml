@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: user-provider
+  profiles:
+    active: dev
+server:
+  port: 6061

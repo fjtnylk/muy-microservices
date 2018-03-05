@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: web-b2b
+  profiles:
+    active: dev
+server:
+  port: 6070
