@@ -9,6 +9,8 @@ import com.muy.microservice.user.query.LoadUserQuery;
 import com.muy.microservice.user.query.UpdateUserQuery;
 import com.muy.plugins.spring.boot.validation.annotation.ReturnValueValid;
 import com.muy.web.b2b.service.IUserService;
+import com.muy.web.b2b.validator.UserNameValidator;
+import com.muy.web.b2b.validator.UserValidator;
 import org.springframework.stereotype.Service;
 
 /**
@@ -58,8 +60,9 @@ public class UserServiceImpl implements IUserService {
    * @param query
    * @return
    */
-  @ReturnValueValid(parameterTypes = {LoadUserQuery.class})
-  //@LoadUserValid
+  @ReturnValueValid(
+      parameterTypes = {LoadUserQuery.class},
+      constraintValidationBy = {UserValidator.class, UserNameValidator.class})
   @Override
   public LoadUserDto loadUser(LoadUserQuery query) {
     return userDubboService.loadUser(query);
