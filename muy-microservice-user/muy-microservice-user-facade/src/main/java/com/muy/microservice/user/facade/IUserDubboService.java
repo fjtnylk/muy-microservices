@@ -1,10 +1,7 @@
 package com.muy.microservice.user.facade;
 
-import com.muy.microservice.user.dto.LoadUserDto;
-import com.muy.microservice.user.query.CreateUserQuery;
-import com.muy.microservice.user.query.DeleteUserQuery;
-import com.muy.microservice.user.query.LoadUserQuery;
-import com.muy.microservice.user.query.UpdateUserQuery;
+import com.muy.microservice.user.dto.RegisterUserDto;
+import com.muy.microservice.user.query.RegisterUserQuery;
 
 /**
  * Created by yanglikai on 2018/3/1.
@@ -12,34 +9,18 @@ import com.muy.microservice.user.query.UpdateUserQuery;
 public interface IUserDubboService {
 
   /**
-   * 创建用户.
+   * 用户注册.
    *
    * @param query
    * @return
    */
-  boolean createUser(CreateUserQuery query);
+  RegisterUserDto register(RegisterUserQuery query);
 
   /**
-   * 删除用户.
+   * 用户验证.
    *
-   * @param query
+   * @param userName
    * @return
    */
-  boolean deleteUser(DeleteUserQuery query);
-
-  /**
-   * 更新用户.
-   *
-   * @param query
-   * @return
-   */
-  boolean updateUser(UpdateUserQuery query);
-
-  /**
-   * 加载用户.
-   *
-   * @param query
-   * @return
-   */
-  LoadUserDto loadUser(LoadUserQuery query);
+  boolean hasUser(String userName);
 }

@@ -19,7 +19,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 public @interface ParameterValid {
 
-  Class<?> target() default Object.class;
-
   boolean required() default true;
 }

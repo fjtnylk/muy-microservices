@@ -64,6 +64,11 @@
         <appender-ref ref="FILE"/>
     </logger>
 
+    <logger name="io.shardingjdbc.core" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>

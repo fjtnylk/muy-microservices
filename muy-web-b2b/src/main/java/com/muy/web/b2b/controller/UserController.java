@@ -1,18 +1,15 @@
 package com.muy.web.b2b.controller;
 
-import com.muy.microservice.user.query.CreateUserQuery;
-import com.muy.microservice.user.query.DeleteUserQuery;
-import com.muy.microservice.user.query.LoadUserQuery;
-import com.muy.microservice.user.query.UpdateUserQuery;
-import com.muy.misc.ModelUtils;
 import com.muy.plugins.spring.boot.mvc.annotation.RequestURL;
 import com.muy.plugins.spring.boot.validation.annotation.ParameterValid;
 import com.muy.web.b2b.query.B2BCreateUserQuery;
 import com.muy.web.b2b.query.B2BDeleteUserQuery;
 import com.muy.web.b2b.query.B2BLoadUserQuery;
+import com.muy.web.b2b.query.B2BRegisterUserQuery;
 import com.muy.web.b2b.query.B2BUpdateUserQuery;
 import com.muy.web.b2b.service.IUserService;
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,35 +27,37 @@ public class UserController {
   private IUserService userService;
 
   @PostMapping(value = "/user/v1/create")
+  @ParameterValid
   @ResponseBody
   public ApiResult createUser(@RequestBody B2BCreateUserQuery query) {
-    CreateUserQuery params = ModelUtils.parse(query, CreateUserQuery.class);
-
-    return ApiResult.success(userService.createUser(params));
+    return ApiResult.success(userService.createUser(query));
   }
 
   @PostMapping(value = "/user/v1/delete")
+  @ParameterValid
   @ResponseBody
   public ApiResult deleteUser(@RequestBody B2BDeleteUserQuery query) {
-    DeleteUserQuery params = ModelUtils.parse(query, DeleteUserQuery.class);
-
-    return ApiResult.success(userService.deleteUser(params));
+    return ApiResult.success(userService.deleteUser(query));
   }
 
   @PostMapping(value = "/user/v1/update")
+  @ParameterValid
   @ResponseBody
   public ApiResult updateUser(@RequestBody B2BUpdateUserQuery query) {
-    UpdateUserQuery params = ModelUtils.parse(query, UpdateUserQuery.class);
-
-    return ApiResult.success(userService.updateUser(params));
+    return ApiResult.success(userService.updateUser(query));
   }
 
   @GetMapping(value = "/user/v1/load")
-  @ParameterValid(target = B2BLoadUserQuery.class)
+  @ParameterValid
   @ResponseBody
   public ApiResult loadUser(@RequestURL B2BLoadUserQuery query) {
-    LoadUserQuery params = ModelUtils.parse(query, LoadUserQuery.class);
+    return ApiResult.success(userService.loadUser(query));
+  }
 
-    return ApiResult.success(userService.loadUser(params));
+  @PostMapping(value = "/user/v1/register")
+  @ParameterValid
+  @ResponseBody
+  public ApiResult registerUser(@RequestBody B2BRegisterUserQuery query) {
+    return ApiResult.success(userService.register(query));
   }
 }

@@ -1,10 +1,12 @@
 package com.muy.web.b2b.service;
 
 import com.muy.microservice.user.dto.LoadUserDto;
-import com.muy.microservice.user.query.CreateUserQuery;
-import com.muy.microservice.user.query.DeleteUserQuery;
-import com.muy.microservice.user.query.LoadUserQuery;
-import com.muy.microservice.user.query.UpdateUserQuery;
+import com.muy.microservice.user.dto.RegisterUserDto;
+import com.muy.web.b2b.query.B2BCreateUserQuery;
+import com.muy.web.b2b.query.B2BDeleteUserQuery;
+import com.muy.web.b2b.query.B2BLoadUserQuery;
+import com.muy.web.b2b.query.B2BRegisterUserQuery;
+import com.muy.web.b2b.query.B2BUpdateUserQuery;
 
 /**
  * Created by yanglikai on 2018/3/2.
@@ -18,7 +20,7 @@ public interface IUserService {
    * @param query
    * @return
    */
-  boolean createUser(CreateUserQuery query);
+  boolean createUser(B2BCreateUserQuery query);
 
   /**
    * 删除用户.
@@ -26,7 +28,7 @@ public interface IUserService {
    * @param query
    * @return
    */
-  boolean deleteUser(DeleteUserQuery query);
+  boolean deleteUser(B2BDeleteUserQuery query);
 
   /**
    * 更新用户.
@@ -34,7 +36,7 @@ public interface IUserService {
    * @param query
    * @return
    */
-  boolean updateUser(UpdateUserQuery query);
+  boolean updateUser(B2BUpdateUserQuery query);
 
   /**
    * 加载用户.
@@ -42,5 +44,13 @@ public interface IUserService {
    * @param query
    * @return
    */
-  LoadUserDto loadUser(LoadUserQuery query);
+  LoadUserDto loadUser(B2BLoadUserQuery query);
+
+  /**
+   * 用户注册.
+   *
+   * @param query
+   * @return
+   */
+  RegisterUserDto register(B2BRegisterUserQuery query);
 }

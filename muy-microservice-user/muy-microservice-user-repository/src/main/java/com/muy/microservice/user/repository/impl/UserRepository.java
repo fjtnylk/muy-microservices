@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
  * Created by yanglikai on 2018/3/1.
  */
 @Repository
-public class UserRepository extends ServiceImpl<UserMapper, UserDO> implements IUserRepository {
+public class UserRepository
+    extends ServiceImpl<UserMapper, UserDO> implements IUserRepository {
 
   /**
    * 添加目标用户.

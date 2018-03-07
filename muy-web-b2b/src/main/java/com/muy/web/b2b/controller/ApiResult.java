@@ -5,8 +5,8 @@ package com.muy.web.b2b.controller;
  * Created by yanglikai on 2017/9/5.
  */
 public class ApiResult {
-  private static final int SUCCESS_CODE = 10000;
-  private static final int BIZ_ERR_CODE = 40004;
+  private static final int SUCCESS_CODE = 200;
+  private static final int BIZ_ERR_CODE = 500;
 
   private static final String SUCCESS_MSG = "ok";
   private static final String BIZ_ERR_MSG = "业务处理失败";

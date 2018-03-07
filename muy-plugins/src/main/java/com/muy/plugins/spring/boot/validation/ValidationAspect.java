@@ -10,6 +10,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.core.annotation.Order;
 
 /**
@@ -19,12 +20,6 @@ import org.springframework.core.annotation.Order;
 @Order(0)
 public class ValidationAspect {
 
-  /**
-   * 执行前
-   *
-   * @param joinPoint
-   * @param paramterValid
-   */
   @Before(value = "@annotation(paramterValid)")
   public void before(JoinPoint joinPoint, ParameterValid paramterValid) {
     if (paramterValid.required() == false) {
@@ -32,23 +27,22 @@ public class ValidationAspect {
     }
 
     Object[] args = joinPoint.getArgs();
+
+    validate(args);
+  }
+
+  private void validate(Object[] args) {
     for (Object arg : args) {
-      if (arg.getClass().getName().equals(paramterValid.target().getName())) {
-        Set<ConstraintViolation<Object>> validateResult = Validator.validate(arg);
-        for (ConstraintViolation<Object> el : validateResult) {
-          throw new ValidationException(el.getMessage());
-        }
+      Set<ConstraintViolation<Object>> validateResult = Validator.validate(arg);
+      for (ConstraintViolation<Object> el : validateResult) {
+        PathImpl path = (PathImpl) el.getPropertyPath();
+        String propertyName = path.getLeafNode().getName();
+
+        throw new ValidationException(String.format("%s.[%s]", el.getMessage(), propertyName));
       }
     }
   }
 
-  /**
-   * 返回
-   *
-   * @param joinPoint
-   * @param returnValueValid
-   * @param result
-   */
   @AfterReturning(value = "@annotation(returnValueValid)", returning = "result")
   public void afterReturning(JoinPoint joinPoint, ReturnValueValid returnValueValid, Object result) {
     if (returnValueValid.required() == false) {

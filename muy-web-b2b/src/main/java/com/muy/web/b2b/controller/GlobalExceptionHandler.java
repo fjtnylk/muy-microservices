@@ -25,13 +25,20 @@ public class GlobalExceptionHandler {
   @ResponseBody
   public ApiResult handleBadRequestException(HttpMessageNotReadableException e) {
     log.error(e.getMessage());
-    return ApiResult.faild(41002, "请求参数错误");
+    return ApiResult.faild(500, "请求参数错误");
   }
 
   @ExceptionHandler(UnsupportedOperationException.class)
   @ResponseBody
   public ApiResult handleUnsuppotedOptException(UnsupportedOperationException e) {
     log.error(e.getMessage());
-    return ApiResult.faild(41002, "请求参数错误");
+    return ApiResult.faild(500, "请求参数错误");
+  }
+
+  @ExceptionHandler(RuntimeException.class)
+  @ResponseBody
+  public ApiResult handleRuntimeException(RuntimeException e) {
+    log.error(e.getMessage());
+    return ApiResult.faild(500, "服务器异常.");
   }
 }
