@@ -1,10 +1,12 @@
 package com.muy.web.b2b.service;
 
 import com.muy.microservice.user.dto.LoadUserDto;
+import com.muy.microservice.user.dto.LoginUserDto;
 import com.muy.microservice.user.dto.RegisterUserDto;
 import com.muy.web.b2b.query.B2BCreateUserQuery;
 import com.muy.web.b2b.query.B2BDeleteUserQuery;
 import com.muy.web.b2b.query.B2BLoadUserQuery;
+import com.muy.web.b2b.query.B2BLoginUserQuery;
 import com.muy.web.b2b.query.B2BRegisterUserQuery;
 import com.muy.web.b2b.query.B2BUpdateUserQuery;
 
@@ -53,4 +55,19 @@ public interface IUserService {
    * @return
    */
   RegisterUserDto register(B2BRegisterUserQuery query);
+
+  /**
+   * 初始化用户随机数.
+   *
+   * @return
+   */
+  boolean initUserRandom();
+
+  /**
+   * 登录验证.
+   *
+   * @param query
+   * @return
+   */
+  LoginUserDto loginAuth(B2BLoginUserQuery query);
 }

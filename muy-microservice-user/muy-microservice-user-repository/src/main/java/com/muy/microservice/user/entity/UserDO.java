@@ -3,6 +3,7 @@ package com.muy.microservice.user.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -13,7 +14,7 @@ import lombok.Data;
 @Data
 @TableName(value = "my_user")
 public class UserDO implements Serializable {
-  @TableId(value = "user_id")
+  @TableId(value = "user_id", type = IdType.INPUT)
   private Long userId;
   @TableField(value = "user_name")
   private String userName;

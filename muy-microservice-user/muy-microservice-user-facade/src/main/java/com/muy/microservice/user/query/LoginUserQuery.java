@@ -1,7 +1,6 @@
 package com.muy.microservice.user.query;
 
 import java.io.Serializable;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -13,5 +12,5 @@ public class LoginUserQuery implements Serializable {
   @NotNull
   private String userName;
   @NotNull
-  private String passwrod;
+  private String password;
 }

@@ -42,4 +42,11 @@ public interface IUserManageService {
    * @return
    */
   LoadUserDto loadUser(LoadUserQuery query);
+
+  /**
+   * 初始化随机数.
+   *
+   * @return
+   */
+  boolean initRandom();
 }

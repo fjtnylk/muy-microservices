@@ -2,6 +2,7 @@ package com.muy.web.b2b.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.muy.microservice.user.dto.LoadUserDto;
+import com.muy.microservice.user.dto.LoginUserDto;
 import com.muy.microservice.user.dto.RegisterUserDto;
 import com.muy.microservice.user.facade.IUserDubboService;
 import com.muy.microservice.user.facade.IUserManageService;
@@ -9,6 +10,7 @@ import com.muy.plugins.spring.boot.validation.annotation.ReturnValueValid;
 import com.muy.web.b2b.query.B2BCreateUserQuery;
 import com.muy.web.b2b.query.B2BDeleteUserQuery;
 import com.muy.web.b2b.query.B2BLoadUserQuery;
+import com.muy.web.b2b.query.B2BLoginUserQuery;
 import com.muy.web.b2b.query.B2BRegisterUserQuery;
 import com.muy.web.b2b.query.B2BUpdateUserQuery;
 import com.muy.web.b2b.service.IUserService;
@@ -93,5 +95,26 @@ public class UserServiceImpl implements IUserService {
 
     /* 用户注册 */
     return userDubboService.register(query);
+  }
+
+  /**
+   * 初始化用户随机数.
+   *
+   * @return
+   */
+  @Override
+  public boolean initUserRandom() {
+    return userManageService.initRandom();
+  }
+
+  /**
+   * 登录验证.
+   *
+   * @param query
+   * @return
+   */
+  @Override
+  public LoginUserDto loginAuth(B2BLoginUserQuery query) {
+    return userDubboService.loginAuth(query);
   }
 }

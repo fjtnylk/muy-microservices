@@ -87,7 +87,7 @@ public class MybatisConfig {
     try {
       sqlSessionFactoryBean
           .setMapperLocations(
-              resolver.getResources("classpath:com/muy/microservice/user/mapper/*Mapper.xml"));
+              resolver.getResources("classpath:mapper/*Mapper.xml"));
       return sqlSessionFactoryBean.getObject();
     } catch (Exception e) {
       e.printStackTrace();

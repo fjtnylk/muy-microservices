@@ -5,11 +5,11 @@ import com.muy.plugins.spring.boot.validation.annotation.ParameterValid;
 import com.muy.web.b2b.query.B2BCreateUserQuery;
 import com.muy.web.b2b.query.B2BDeleteUserQuery;
 import com.muy.web.b2b.query.B2BLoadUserQuery;
+import com.muy.web.b2b.query.B2BLoginUserQuery;
 import com.muy.web.b2b.query.B2BRegisterUserQuery;
 import com.muy.web.b2b.query.B2BUpdateUserQuery;
 import com.muy.web.b2b.service.IUserService;
 import javax.annotation.Resource;
-import javax.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -59,5 +59,18 @@ public class UserController {
   @ResponseBody
   public ApiResult registerUser(@RequestBody B2BRegisterUserQuery query) {
     return ApiResult.success(userService.register(query));
+  }
+
+  @PostMapping(value = "/user/v1/random/init")
+  @ResponseBody
+  public ApiResult initRandom() {
+    return ApiResult.success(userService.initUserRandom());
+  }
+
+  @PostMapping(value = "/user/v1/login/auth")
+  @ParameterValid
+  @ResponseBody
+  public ApiResult loginAuth(@RequestBody B2BLoginUserQuery query) {
+    return ApiResult.success(userService.loginAuth(query));
   }
 }

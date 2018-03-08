@@ -1,6 +1,8 @@
 package com.muy.microservice.user.facade;
 
+import com.muy.microservice.user.dto.LoginUserDto;
 import com.muy.microservice.user.dto.RegisterUserDto;
+import com.muy.microservice.user.query.LoginUserQuery;
 import com.muy.microservice.user.query.RegisterUserQuery;
 
 /**
@@ -15,6 +17,14 @@ public interface IUserDubboService {
    * @return
    */
   RegisterUserDto register(RegisterUserQuery query);
+
+  /**
+   * 登录认证.
+  *
+   * @param query
+   * @return
+   */
+  LoginUserDto loginAuth(LoginUserQuery query);
 
   /**
    * 用户验证.

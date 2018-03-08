@@ -9,19 +9,13 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * Created by yanglikai on 2018/3/7.
+ * Created by yanglikai on 2018/3/8.
  */
 @Data
-@TableName(value = "my_user_local_auth")
-public class UserLocalAuthDO implements Serializable {
-  @TableId(value = "user_id", type = IdType.INPUT)
-  private Long userId;
-  @TableField(value = "user_name")
-  private String userName;
-  @TableField(value = "password")
-  private String password;
-  @TableField(value = "salt")
-  private String salt;
+@TableName(value = "my_user_random")
+public class UserRandomDO implements Serializable {
+  @TableId(value = "random", type = IdType.INPUT)
+  private Integer random;
   @TableField(value = "create_time")
   private Date createTime;
   @TableField(value = "update_time")
