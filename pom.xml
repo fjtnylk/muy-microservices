@@ -61,6 +61,9 @@
         <!--sharding-jdbc-->
         <sharding-jdbc.version>2.0.3</sharding-jdbc.version>
 
+        <!--elastic-job-->
+        <elastic-job.version>2.1.5</elastic-job.version>
+
         <!--mysql-->
         <mysql.version>6.0.6</mysql.version>
 
@@ -133,6 +136,19 @@
                 <groupId>io.shardingjdbc</groupId>
                 <artifactId>sharding-jdbc-core</artifactId>
                 <version>${sharding-jdbc.version}</version>
+            </dependency>
+
+            <!--elastic-job-->
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-core</artifactId>
+                <version>${elastic-job.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-spring</artifactId>
+                <version>${elastic-job.version}</version>
             </dependency>
 
             <!--mysql-->
