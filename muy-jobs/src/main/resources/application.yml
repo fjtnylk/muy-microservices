@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: job-provider
+  profiles:
+    active: dev
+server:
+  port: 6062
