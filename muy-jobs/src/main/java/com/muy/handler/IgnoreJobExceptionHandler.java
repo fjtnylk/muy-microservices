@@ -14,6 +14,5 @@ public class IgnoreJobExceptionHandler implements JobExceptionHandler {
    */
   @Override
   public void handleException(String jobName, Throwable cause) {
-    System.out.println("IgnoreJobExceptionHandler.handleException()");
   }
 }

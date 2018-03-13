@@ -1,3 +1,8 @@
+#zookeeper
+regCenter:
+  serverList: 127.0.0.1:2181
+  namespace: elastic-job-lite-springboot
+
 #dubbo
 spring.dubbo:
   appname: job-provider
