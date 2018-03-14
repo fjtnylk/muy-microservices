@@ -6,7 +6,6 @@ import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import com.muy.microservice.user.dto.LoginUserDto;
 import com.muy.microservice.user.facade.IUserDubboService;
 import com.muy.microservice.user.query.LoginUserQuery;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
