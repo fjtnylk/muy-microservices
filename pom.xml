@@ -27,6 +27,7 @@
         <module>muy-web-admin</module>
         <module>muy-web-b2b</module>
         <module>muy-web-s2b</module>
+        <module>muy-app-b2g</module>
         <module>muy-tools</module>
         <module>muy-plugins</module>
     </modules>
